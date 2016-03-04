@@ -64,12 +64,12 @@ namespace Crypto
                 List<Slot> slots = pkcs11.GetSlotList(true);
 
                 // Find first slot with token present
-                Slot slot = slots[4];
+                Slot slot = slots[0];
 
                 // Open RO session
                 using (Session session = slot.OpenSession(true))
                 {
-                    session.Login(CKU.CKU_USER, "admin2");
+                    session.Login(CKU.CKU_USER, "userPin");
 
                     // Prepare attribute template that defines search criteria
                     List<ObjectAttribute> objectAttributes = new List<ObjectAttribute>();
